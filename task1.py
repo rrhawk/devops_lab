@@ -9,5 +9,5 @@ while n > 0:
     n -= 1
 
 a = base.index(str(input()))
-sm = (base[a + 1] + base[a + 2] + base[a + 3])/3
+sm = (base[a + 1] + base[a + 2] + base[a + 3]) / 3
 print(sm)
