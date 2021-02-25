@@ -5,10 +5,12 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "main = snapshot.snapshot:main",
+            "snapshot = snapshot.snapshot:main",
         ],
     },
     install_requires=[
+        #   'argparse',
+        'psutil'
     ],
     version="0.1",
     author="Sergey Kosolapov",

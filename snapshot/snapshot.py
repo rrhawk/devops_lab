@@ -3,7 +3,24 @@ import argparse
 import sched
 import json
 import time
-import func
+import psutil
+
+
+class SnapshotClass:
+
+    snapCount = 0
+
+    def __init__(self):
+        self.cpu = str(psutil.cpu_percent(interval=0.5))
+        self.mem = str(psutil.virtual_memory().total - psutil.virtual_memory().available)
+        self.vm = str(psutil.virtual_memory().used)
+        self.io = str(psutil.disk_io_counters())
+        self.net = str(psutil.net_io_counters())
+        SnapshotClass.snapCount += 1
+
+    @property
+    def display_count(self):
+        return SnapshotClass.snapCount
 
 
 def main():
@@ -11,7 +28,7 @@ def main():
     s = sched.scheduler(time.time, time.sleep)
 
     def timer_func(sc):
-        snap = func.SnapshotClass()
+        snap = SnapshotClass()
         if args.type == "text":
             file_object.write('TIMESTAMP: {0} SNAPSHOT: \
             {1}'.format(snap.display_count, snap.__dict__) + '\n')
@@ -26,7 +43,7 @@ def main():
     parser.add_argument(
         "type",
         type=str,
-        help="type of output file: text ot json"
+        help="type of output file: text or json: sample: snapshot json"
     )
     parser.add_argument(
         '--time',
