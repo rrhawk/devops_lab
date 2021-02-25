@@ -1,13 +1,15 @@
-n = int(input())
 base = []
-
+n = int(input())
+names = {}
+marks_float = []
 while n > 0:
-    base.append(input())
-    base.append(float(input()))
-    base.append(float(input()))
-    base.append(float(input()))
+    input_string = input()
+    name = input_string.split(" ")[0]
+    marks = input_string.split(" ")[1:]
+    for mark in marks:
+        marks_float.append(float(mark))
+    names[name] = marks_float
     n -= 1
-
-a = base.index(str(input()))
-sm = (base[a + 1] + base[a + 2] + base[a + 3]) / 3
-print(sm)
+find_name = input()
+average_mark = sum(names[find_name]) / 3
+print(average_mark)
