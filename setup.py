@@ -9,8 +9,6 @@ setup(
         ],
     },
     install_requires=[
-     #   'argparse',
-     #   'psutil'
     ],
     version="0.1",
     author="Sergey Kosolapov",

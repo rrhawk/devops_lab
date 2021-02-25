@@ -13,11 +13,13 @@ def main():
     def timer_func(sc):
         snap = func.SnapshotClass()
         if args.type == "text":
-            file_object.write('TIMESTAMP: {0} SNAPSHOT: {1}'.format(snap.display_count, snap.__dict__) + '\n')
+            file_object.write('TIMESTAMP: {0} SNAPSHOT: \
+            {1}'.format(snap.display_count, snap.__dict__) + '\n')
         elif args.type == "json":
             json_object = json.dumps(snap.__dict__, indent=5)
             with open("file.json", "a+") as outfile:
-                outfile.write('TIMESTAMP: {0} SNAPSHOT: {1}'.format(snap.display_count, json_object + '\n'))
+                outfile.write('TIMESTAMP: {0} SNAPSHOT: \
+                {1}'.format(snap.display_count, json_object + '\n'))
         sc.enter(args.time, 1, timer_func, (sc,))
 
     parser = argparse.ArgumentParser()
