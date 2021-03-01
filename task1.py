@@ -1,11 +1,11 @@
 base = []
 n = int(input())
 names = {}
-marks_float = []
 while n > 0:
     input_string = input()
     name = input_string.split(" ")[0]
     marks = input_string.split(" ")[1:]
+    marks_float = []
     for mark in marks:
         marks_float.append(float(mark))
     names[name] = marks_float
