@@ -1,6 +1,8 @@
 import requests
 
-headers = {'Authorization': 'token %s' % "8f038539eb3b568b8404df754aa1e300fff1136d", 'per_page': 100, 'state': 'all'}
+headers = {'Authorization': 'token %s' % "8f038539eb3b568b8404df754aa1e300fff1136d",
+           'per_page': 100,
+           'state': 'all'}
 r = requests.get('https://api.github.com/repos/alenaPy/devops_lab/pulls', params=headers)
 
 
