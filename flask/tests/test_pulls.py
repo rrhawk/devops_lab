@@ -10,7 +10,7 @@ class TestPulls(TestCase):
 
     def test_pulls(self):
 
-        with open('/home/user/PycharmProjects/flask/handlers/2.json', 'r') as myfile:
+        with open('./2.json', 'r') as myfile:
             data = myfile.read()
             # parse file
         input_json = json.loads(data)
